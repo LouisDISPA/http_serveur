@@ -1,0 +1,7 @@
+*.pdf
+
+*.a
+*.o
+bin
+temp
+lib

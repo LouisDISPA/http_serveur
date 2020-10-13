@@ -1,0 +1,1 @@
+# simple serveur static HTTP/1.0 en C
