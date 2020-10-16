@@ -2,6 +2,12 @@
 #define __SERVEUR_h__
 
 #include "Reseau.h"
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
+#include <sys/wait.h> 
+#include <sys/types.h> 
+#include <sys/stat.h>
 
 //TODO: documentation
 
@@ -27,6 +33,8 @@ int S_traiterClient(int socketClient);
 
 int S_traiterRequete(int socketClient);
 
-char* S_reponseHTTP(char* requete, int nbCaractere);
+int S_reponseHTTP(int socketClient, char* requete);
+
+char* S_typeFichier(char* cheminFichier);
 
 #endif
