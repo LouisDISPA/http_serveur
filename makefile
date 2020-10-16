@@ -1,7 +1,6 @@
 SRCDIR = src
 LIBDIR = lib
 BINDIR = bin
-DOCDIR = doc
 INCLUDEDIR = include
 
 CC = gcc
@@ -14,25 +13,16 @@ OBJ = $(SRC:.c=.o)
 INCLUDE = $(wildcard $(INCLUDEDIR)/*.h)
 
 
-all : prg doc
+all : prg
 
 clean :
 	rm -rf $(BINDIR)/*
 	rm -rf $(SRCDIR)/*.o
-	rm -rf $(DOCDIR)/*
 
 prg : $(EXEC)
-	
-doc : $(DOCDIR)/html/index.html 
-
-
 
 $(EXEC) : $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o : %.c
 	$(CC) -c -o $@ $< $(CFLAGS)
-
-
-$(DOCDIR)/html/index.html : $(INCLUDE)
-	doxygen
